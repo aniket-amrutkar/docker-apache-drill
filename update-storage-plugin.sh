@@ -9,14 +9,14 @@ sed -i -e "s/HDFS/$hdfs/" /dfs.config
 sed -i -e "s/PREFIX/$pathPrefix/" /dfs.config
 
 counter=1
-while [ $counter -le 5 ]
+while [ $counter -le 10 ]
 do
 	response=$(curl --write-out %{http_code} --silent --output /dev/null -H "Content-Type: application/json" -X POST  --data "@/dfs.config" http://localhost:8047/storage/dfs.json)
   if [ response -eq 200 ]
   then
      break
   fi
-  sleep 1
+  sleep 5
   (( counter++ ))
 done
 
