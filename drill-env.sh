@@ -15,5 +15,5 @@ export DRILL_JAVA_OPTS="-Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=
 export SERVER_GC_OPTS="-XX:+CMSClassUnloadingEnabled -XX:+UseG1GC "
 
 
-echo "drill.exec:{ cluster-id: \"$DRILL_CLUSTER\", zk.connect: \"$ZOOKEEPER\", buffer.size : \"$DRILL_EXEC_BUFFER_SIZE\" }" > /opt/drill/apache-drill-${DRILL_VERSION}/conf/drill-override.conf
+echo "drill.exec:{ cluster-id: \"$DRILL_CLUSTER\", zk.connect: \"$ZOOKEEPER\", buffer.size : \"$DRILL_EXEC_BUFFER_SIZE\", rpc.user.timeout: 3600 }" > /opt/drill/apache-drill-${DRILL_VERSION}/conf/drill-override.conf
 
