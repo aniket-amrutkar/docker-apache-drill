@@ -5,4 +5,3 @@ DRILL_HEAP=4G
 DRILL_CLUSTER=drillbit1
 ```
 The only **compulsory** variable is **ZOOKEEPER** which must be set to the *hostname:port*
-
