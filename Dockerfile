@@ -1,10 +1,8 @@
 FROM java:openjdk-8-jdk
 
-RUN mkdir -p /drill-scripts && \
-    mkdir -p /opt/drill && \
-    mkdir -p /var/log/drill
+RUN mkdir -p /opt/drill
 
-RUN apt-get update && apt-get install -y supervisor
+RUN apt-get update
 
 ENV DRILL_VERSION 1.11.0
 RUN curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
@@ -18,8 +16,9 @@ ENV DRILL_MAX_DIRECT_MEMORY=8G
 ENV DRILL_HEAP=4G  
 ENV DRILL_CLUSTER=falkonry
 ADD bootstrap-storage-plugins.json /opt/drill/apache-drill-${DRILL_VERSION}/conf
-ADD start.sh /start.sh
+ADD start.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin
 
-ENTRYPOINT /start.sh
+ENTRYPOINT /opt/drill/apache-drill-${DRILL_VERSION}/bin/start.sh
+
 EXPOSE 8047
 EXPOSE 31010
