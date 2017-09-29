@@ -1,0 +1,27 @@
+{
+  "storage":{
+    "dfs" : {
+      "type" : "file",
+      "enabled" : true,
+      "connection" : "HDFS",
+      "config" : null,
+      "workspaces" : {
+        "falkonry" : {
+          "location" : "PREFIX",
+          "writable" : false,
+          "defaultInputFormat" : null
+        },
+        "tmp" : {
+          "location" : "/tmp",
+          "writable" : true,
+          "defaultInputFormat" : null
+        }
+      },
+      "formats" : {
+        "parquet" : {
+          "type" : "parquet"
+        }
+      }
+    }
+  }
+}

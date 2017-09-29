@@ -14,20 +14,12 @@ RUN rm apache-drill-${DRILL_VERSION}.tar.gz
 #use DRILL_MAX_DIRECT_MEMORY and DRILL_HEAP to control the memory allocation
 #also use  DRILL_CLUSTER and ZOOKEEPER
 
-ADD drill-env.sh /opt/drill/apache-drill-${DRILL_VERSION}/conf/drill-env.sh
-
-ENV DRILL_LOG_DIR=/var/log/drill
-ENV DRILLBIT_LOG_PATH=/var/log/drill/drillbit.log
-ENV DRILLBIT_QUERY_LOG_PATH=/var/log/drill/drill-query.log
 ENV DRILL_MAX_DIRECT_MEMORY=8G
 ENV DRILL_HEAP=4G  
 ENV DRILL_CLUSTER=falkonry
+ADD bootstrap-storage-plugins.json /opt/drill/apache-drill-${DRILL_VERSION}/conf
+ADD start.sh /start.sh
 
-ADD supervisord.conf /etc/
-ADD dfs.config /dfs.config
-ADD update-storage-plugin.sh /update-storage-plugin.sh
-
-ENTRYPOINT /usr/bin/supervisord -c /etc/supervisord.conf --nodaemon
+ENTRYPOINT /start.sh
 EXPOSE 8047
 EXPOSE 31010
-
