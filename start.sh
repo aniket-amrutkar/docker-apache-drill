@@ -25,7 +25,7 @@ DRILL_RPC_USER_TIMEOUT=${DRILL_RPC_USER_TIMEOUT:-"3600"}
 HDFS=$(printf '%s\n' "$HDFS_URL" | sed 's:[][\/.^$*]:\\&:g')
 PATH_PREFIX=$(printf '%s\n' "$HDFS_DATA_PREFIX" | sed 's:[\/&]:\\&:g;$!s/$/\\/')
 
-echo "drill.exec:{ cluster-id: \"$DRILL_CLUSTER\", zk.connect: \"$ZOOKEEPER\", buffer.size : \"$DRILL_EXEC_BUFFER_SIZE\", rpc.user.timeout: $DRILL_RPC_USER_TIMEOUT }" > /opt/drill/apache-drill-${DRILL_VERSION}/conf/drill-override.conf
+echo "drill.exec:{ cluster-id: \"$DRILL_CLUSTER\", zk.connect: \"$ZOOKEEPER\", buffer.size : \"$DRILL_EXEC_BUFFER_SIZE\", rpc.user.timeout: $DRILL_RPC_USER_TIMEOUT }" > $DRILL_HOME/conf/drill-override.conf
 
 sed -i -e "s/HDFS/$HDFS/" $DRILL_HOME/conf/bootstrap-storage-plugins.json
 sed -i -e "s/PREFIX/$PATH_PREFIX/" $DRILL_HOME/conf/bootstrap-storage-plugins.json
