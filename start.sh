@@ -30,6 +30,10 @@ echo "drill.exec:{ cluster-id: \"$DRILL_CLUSTER\", zk.connect: \"$ZOOKEEPER\", b
 sed -i -e "s/HDFS/$HDFS/" $DRILL_HOME/conf/bootstrap-storage-plugins.json
 sed -i -e "s/PREFIX/$PATH_PREFIX/" $DRILL_HOME/conf/bootstrap-storage-plugins.json
 
+cd $DRILL_HOME/conf
+jar -uf ../jars/drill-java-exec-${DRILL_VERSION}.jar /bootstrap-storage-plugins.json
+cd /
+
 echo "========== Storage configuration =========="
 cat $DRILL_HOME/conf/bootstrap-storage-plugins.json
 echo "==========================================="
