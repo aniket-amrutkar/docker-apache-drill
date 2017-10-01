@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 sleep 10 #wait untill drill starts
 
