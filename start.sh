@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #Drill home dir
 DRILL_HOME=/opt/drill/apache-drill-${DRILL_VERSION}
