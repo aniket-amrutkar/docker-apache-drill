@@ -1,6 +1,6 @@
 {
   "storage":{
-    "hdfs" : {
+    "dfs" : {
       "type" : "file",
       "enabled" : true,
       "connection" : "HDFS",
