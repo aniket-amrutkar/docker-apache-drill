@@ -29,14 +29,10 @@ echo "drill.exec:{ cluster-id: \"$DRILL_CLUSTER\", zk.connect: \"$ZOOKEEPER\", b
 
 sed -i -e "s/HDFS/$HDFS/" $DRILL_HOME/conf/bootstrap-storage-plugins.json
 sed -i -e "s/PREFIX/$PATH_PREFIX/" $DRILL_HOME/conf/bootstrap-storage-plugins.json
+sed -i -e "s/HDFS/$HDFS/" /dfs.config
+sed -i -e "s/PREFIX/$PATH_PREFIX/" /dfs.config
 
-cd $DRILL_HOME/conf
-jar -uf ../jars/drill-java-exec-${DRILL_VERSION}.jar /bootstrap-storage-plugins.json
-cd /
-
-echo "========== Storage configuration =========="
-cat $DRILL_HOME/conf/bootstrap-storage-plugins.json
-echo "==========================================="
+/opt/drill/apache-drill-${DRILL_VERSION}/bin/update.sh &
 
 java -Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=$DRILL_MAX_DIRECT_MEMORY \
 	-XX:ReservedCodeCacheSize=$DRILLBIT_CODE_CACHE_SIZE -Ddrill.exec.enable-epoll=false \

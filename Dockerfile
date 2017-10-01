@@ -15,8 +15,10 @@ RUN rm apache-drill-${DRILL_VERSION}.tar.gz
 ENV DRILL_MAX_DIRECT_MEMORY=8G
 ENV DRILL_HEAP=4G  
 ENV DRILL_CLUSTER=falkonry
+ADD dfs.config /dfs.config
 ADD bootstrap-storage-plugins.json /opt/drill/apache-drill-${DRILL_VERSION}/conf
 ADD start.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin
+ADD update.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin
 ADD logback.xml /opt/drill/apache-drill-${DRILL_VERSION}/conf
 
 ENTRYPOINT /opt/drill/apache-drill-${DRILL_VERSION}/bin/start.sh
