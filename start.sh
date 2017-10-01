@@ -37,6 +37,5 @@ echo "==========================================="
 java -Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=$DRILL_MAX_DIRECT_MEMORY \
 	-XX:ReservedCodeCacheSize=$DRILLBIT_CODE_CACHE_SIZE -Ddrill.exec.enable-epoll=false \
 	-XX:MaxPermSize=$DRILLBIT_MAX_PERM -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC \
-	-Dlog.path=/dev/null -Dlog.query.path=/dev/null \
 	-cp $CP \
 	org.apache.drill.exec.server.Drillbit
