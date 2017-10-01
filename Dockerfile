@@ -1,4 +1,4 @@
-FROM java:openjdk-8-jre-alpine
+FROM java:openjdk-8-jre
 
 ENV DRILL_VERSION 1.11.0
 ENV DRILL_MAX_DIRECT_MEMORY 8G
@@ -6,8 +6,7 @@ ENV DRILL_HEAP 4G
 ENV DRILL_CLUSTER falkonry
 
 RUN mkdir -p /opt/drill
-RUN apk add --update curl && \
-	curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
+RUN curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
     tar -zxpf apache-drill-${DRILL_VERSION}.tar.gz -C /opt/drill && \
     rm apache-drill-${DRILL_VERSION}.tar.gz
 
