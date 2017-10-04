@@ -32,7 +32,8 @@ sed -i -e "s/PREFIX/$PATH_PREFIX/" $DRILL_HOME/conf/bootstrap-storage-plugins.js
 sed -i -e "s/HDFS/$HDFS/" /dfs.config
 sed -i -e "s/PREFIX/$PATH_PREFIX/" /dfs.config
 
-/opt/drill/apache-drill-${DRILL_VERSION}/bin/update.sh &
+#updating storage and sys config
+${DRILL_HOME}/bin/update.sh &
 
 java -Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=$DRILL_MAX_DIRECT_MEMORY \
 	-XX:ReservedCodeCacheSize=$DRILLBIT_CODE_CACHE_SIZE -Ddrill.exec.enable-epoll=false \
