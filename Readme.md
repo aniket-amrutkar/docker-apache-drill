@@ -1,3 +1,5 @@
+[![Docker Repository on Quay](https://quay.io/repository/falkonry/apache-drill/status "Docker Repository on Quay")](https://quay.io/repository/falkonry/apache-drill)
+
 The following environment variables can be modified and have the following default values:
 ```
 DRILL_MAX_DIRECT_MEMORY=8G
