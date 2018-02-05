@@ -13,6 +13,7 @@ PLANNER_MAX_MEMORY=${DRILL_PLANNER_MAX_MEMORY:-"2147483648"}
 PLANNER_MEMORY_LIMIT=${DRILL_PLANNER_MEMORY_LIMIT:-"2147483648"}
 PLANNER_WIDTH_MAX_PER_NODE=${DRILL_PLANNER_WIDTH_MAX_PER_NODE:-"4"}
 PLANNER_WIDTH_MAX_PER_QUERY=${DRILL_PLANNER_WIDTH_MAX_PER_QUERY:-"100"}
+ENABLE_UNION_TYPE=${ENABLE_UNION_TYPE:-"true"}
 
 sleep 10 #wait untill drill starts
 
@@ -39,6 +40,7 @@ echo "================ Updating sys config ================"
 	"ALTER SYSTEM SET \`exec.queue.enable\`=${QUERY_ENABLE};\n" \
 	"ALTER SYSTEM SET \`exec.queue.large\`=${QUERY_LARGE};\n" \
 	"ALTER SYSTEM SET \`exec.queue.small\`=${QUERY_SMALL};\n" \
+	"ALTER SYSTEM SET \`exec.enable.union.type\`=${ENABLE_UNION_TYPE};\n" \
 	"ALTER SYSTEM SET \`planner.enable_hashagg\`=${PLANNER_HASHAGG};\n" \
 	"ALTER SYSTEM SET \`planner.enable_hashjoin\`=${PLANNER_HASHJOIN};\n" \
 	"ALTER SYSTEM SET \`planner.memory.max_query_memory_per_node\`=${PLANNER_MAX_MEMORY};\n" \
