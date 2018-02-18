@@ -40,7 +40,7 @@ echo "================ Updating sys config ================"
 	"ALTER SYSTEM SET \`exec.queue.enable\`=${QUERY_ENABLE};\n" \
 	"ALTER SYSTEM SET \`exec.queue.large\`=${QUERY_LARGE};\n" \
 	"ALTER SYSTEM SET \`exec.queue.small\`=${QUERY_SMALL};\n" \
-	"ALTER SYSTEM SET \`exec.enable.union.type\`=${ENABLE_UNION_TYPE};\n" \
+	"ALTER SYSTEM SET \`exec.enable_union_type\`=${ENABLE_UNION_TYPE};\n" \
 	"ALTER SYSTEM SET \`planner.enable_hashagg\`=${PLANNER_HASHAGG};\n" \
 	"ALTER SYSTEM SET \`planner.enable_hashjoin\`=${PLANNER_HASHJOIN};\n" \
 	"ALTER SYSTEM SET \`planner.memory.max_query_memory_per_node\`=${PLANNER_MAX_MEMORY};\n" \
