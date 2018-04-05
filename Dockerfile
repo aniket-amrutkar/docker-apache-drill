@@ -1,4 +1,4 @@
-FROM quay.io/falkonry/openjdk:openjdk8-alpine
+FROM quay.io/falkonry/openjdk:8-jdk-alpine
 
 ENV DRILL_VERSION 1.12.0
 ENV DRILL_MAX_DIRECT_MEMORY 8G
