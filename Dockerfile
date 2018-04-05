@@ -2,8 +2,8 @@ FROM quay.io/falkonry/openjdk:8-jdk-alpine
 
 ENV DRILL_VERSION 1.12.0 && \
 	DRILL_MAX_DIRECT_MEMORY 8G && \
-	ENV DRILL_HEAP 4G && \
-	ENV DRILL_CLUSTER falkonry
+	DRILL_HEAP 4G && \
+	DRILL_CLUSTER falkonry
 
 RUN mkdir -p /opt/drill
 RUN	curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
