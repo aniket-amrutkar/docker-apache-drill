@@ -10,11 +10,11 @@ RUN mkdir -p /opt/drill && \
     tar -zxpf apache-drill-${DRILL_VERSION}.tar.gz -C /opt/drill && \
     rm apache-drill-${DRILL_VERSION}.tar.gz
 
-ADD dfs.config /dfs.config && \
-	bootstrap-storage-plugins.json /opt/drill/apache-drill-${DRILL_VERSION}/conf && \
-	start.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin && \
-	update.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin && \
-	logback.xml /opt/drill/apache-drill-${DRILL_VERSION}/conf
+ADD dfs.config /dfs.config
+ADD bootstrap-storage-plugins.json /opt/drill/apache-drill-${DRILL_VERSION}/conf
+ADD start.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin
+ADD update.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin
+ADD logback.xml /opt/drill/apache-drill-${DRILL_VERSION}/conf
 
 ENTRYPOINT /opt/drill/apache-drill-${DRILL_VERSION}/bin/start.sh
 
