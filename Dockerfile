@@ -5,7 +5,8 @@ ENV DRILL_MAX_DIRECT_MEMORY 8G
 ENV DRILL_HEAP 4G  
 ENV DRILL_CLUSTER falkonry
 
-RUN mkdir -p /opt/drill
+RUN mkdir -p /opt/drill && \
+	apt-get install curl
 RUN curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
     tar -zxpf apache-drill-${DRILL_VERSION}.tar.gz -C /opt/drill && \
     rm apache-drill-${DRILL_VERSION}.tar.gz
