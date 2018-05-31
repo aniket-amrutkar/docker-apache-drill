@@ -7,8 +7,6 @@ DRILL_HOME=/opt/drill/apache-drill-${DRILL_VERSION}
 QUERY_ENABLE=${DRILL_QUERY_ENABLE:-"true"}
 QUERY_LARGE=${DRILL_QUERY_LARGE:-"2"}
 QUERY_SMALL=${DRILL_QUERY_SMALL:-"100"}
-QUERY_PROFILES_INMEMORY=${QUERY_PROFILES_INMEMORY:-"true"}
-QUERY_PROFILES_CAPACITY=${QUERY_PROFILES_CAPACITY:-"100"}
 PLANNER_HASHAGG=${DRILL_PLANNER_HASHAGG:-"false"}
 PLANNER_HASHJOIN=${DRILL_PLANNER_HASHJOIN:-"false"}
 PLANNER_MAX_MEMORY=${DRILL_PLANNER_MAX_MEMORY:-"2147483648"}
@@ -44,8 +42,6 @@ echo "================ Updating sys config ================"
 	"ALTER SYSTEM SET \`exec.queue.large\`=${QUERY_LARGE};\n" \
 	"ALTER SYSTEM SET \`exec.queue.small\`=${QUERY_SMALL};\n" \
 	"ALTER SYSTEM SET \`exec.enable_union_type\`=${ENABLE_UNION_TYPE};\n" \
-	"ALTER SYSTEM SET \`exec.profiles.store.inmemory\`=${QUERY_PROFILES_INMEMORY};\n" \
-	"ALTER SYSTEM SET \`exec.profiles.store.capacity\`=${QUERY_PROFILES_CAPACITY};\n" \
 	"ALTER SYSTEM SET \`planner.enable_hashagg\`=${PLANNER_HASHAGG};\n" \
 	"ALTER SYSTEM SET \`planner.enable_hashjoin\`=${PLANNER_HASHJOIN};\n" \
 	"ALTER SYSTEM SET \`planner.memory.max_query_memory_per_node\`=${PLANNER_MAX_MEMORY};\n" \
