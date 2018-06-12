@@ -11,6 +11,7 @@ RUN curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/d
     rm apache-drill-${DRILL_VERSION}.tar.gz
 
 ADD dfs.config /dfs.config
+ADD mongo.config /mongo.config
 ADD bootstrap-storage-plugins.json /opt/drill/apache-drill-${DRILL_VERSION}/conf
 ADD start.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin
 ADD update.sh /opt/drill/apache-drill-${DRILL_VERSION}/bin
