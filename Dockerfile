@@ -5,8 +5,8 @@ ENV DRILL_VERSION=1.12.0 \
   DRILL_HEAP=4G \
   DRILL_CLUSTER=falkonry
 
-RUN mkdir -p /opt/drill
-RUN curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
+RUN mkdir -p /opt/drill && \
+	curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
   tar -zxpf apache-drill-${DRILL_VERSION}.tar.gz -C /opt/drill && \
   rm apache-drill-${DRILL_VERSION}.tar.gz
 
