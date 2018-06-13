@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Drill cleanup files on restart
+rm -rf /tmp/drill/*
+rm -rf /var/log/drill/*
+
 #Drill home dir
 DRILL_HOME=/opt/drill/apache-drill-${DRILL_VERSION}
 
