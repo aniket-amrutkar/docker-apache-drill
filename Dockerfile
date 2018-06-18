@@ -1,6 +1,6 @@
 FROM quay.io/falkonry/openjdk:8-jdk-alpine-zulu
 
-ENV DRILL_VERSION=1.12.0 \
+ENV DRILL_VERSION=1.13.0 \
   DRILL_MAX_DIRECT_MEMORY=8G \
   DRILL_HEAP=4G \
   DRILL_CLUSTER=falkonry \
