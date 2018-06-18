@@ -14,6 +14,7 @@ PLANNER_MEMORY_LIMIT=${DRILL_PLANNER_MEMORY_LIMIT:-"2147483648"}
 PLANNER_WIDTH_MAX_PER_NODE=${DRILL_PLANNER_WIDTH_MAX_PER_NODE:-"4"}
 PLANNER_WIDTH_MAX_PER_QUERY=${DRILL_PLANNER_WIDTH_MAX_PER_QUERY:-"100"}
 ENABLE_UNION_TYPE=${ENABLE_UNION_TYPE:-"true"}
+STORE_MONGO_BSON_RECORD_READER=${STORE_MONGO_BSON_RECORD_READER:-"false"}
 
 
 sleep 10 #wait untill drill starts
@@ -62,5 +63,6 @@ echo "================ Updating sys config ================"
 	"ALTER SYSTEM SET \`planner.memory_limit\`=${PLANNER_MEMORY_LIMIT};\n" \
 	"ALTER SYSTEM SET \`planner.width.max_per_node\`=${PLANNER_WIDTH_MAX_PER_NODE};\n" \
 	"ALTER SYSTEM SET \`planner.width.max_per_query\`=${PLANNER_WIDTH_MAX_PER_QUERY};\n" \
+	"ALTER SYSTEM SET \`store.mongo.bson.record.reader\`=${STORE_MONGO_BSON_RECORD_READER};\n" \
 	"!quit\n" ; cat ; \
 } | ${DRILL_HOME}/bin/drill-conf
