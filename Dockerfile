@@ -3,7 +3,8 @@ FROM quay.io/falkonry/openjdk:8-jdk-alpine-zulu
 ENV DRILL_VERSION=1.12.0 \
   DRILL_MAX_DIRECT_MEMORY=8G \
   DRILL_HEAP=4G \
-  DRILL_CLUSTER=falkonry
+  DRILL_CLUSTER=falkonry \
+  MONGO_URL=mongodb://falkonry-mongo:27017/
 
 RUN mkdir -p /opt/drill && \
 	curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
